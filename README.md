@@ -39,3 +39,5 @@
  ```python
  mbin.MultiplicativeBinomialNegLogLike([p, nu], m, sample)
  ```
+
+ TODO: There are issues here. Calculating the partition function results in overflow.

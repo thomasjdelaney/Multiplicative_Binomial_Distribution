@@ -150,8 +150,8 @@ def multiplicativeBinomialNegLogLike(params, m, samples):
     multi_bin_dist = MultiplicativeBinomial(p, theta, m)
     p_part = np.log(p/(1-p))*samples.sum()
     theta_part = np.log(theta) * np.sum((samples*(m-samples)))
-    partition_part = np.log(mulit_bin_dist.normaliser) - (m * np.log(1-p)) - np.log(comb(m,samples)).sum()
-    return n*partition_part - p_part - nu_part
+    partition_part = np.log(multi_bin_dist.normaliser) - (m * np.log(1-p))
+    return n*partition_part - p_part - theta_part - np.log(comb(m,samples)).sum()
 
 def estimateParams(m, samples, init):
     """
@@ -161,7 +161,7 @@ def estimateParams(m, samples, init):
                 init, initial guess for the parameters, p and theta
     Return:     the fitted params, p and theta
     """
-    bnds = ((np.finfo(float).resolution, 1 - np.finfo(float).resolution),(None,None))
+    bnds = ((np.finfo(float).resolution, 1 - np.finfo(float).resolution),(np.finfo(float).resolution,None))
     res = minimize(multiplicativeBinomialNegLogLike, init, args=(m,samples), bounds=bnds)
     return res.x
 
