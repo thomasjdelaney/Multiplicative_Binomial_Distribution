@@ -6,7 +6,7 @@
 - numpy
 - scipy
 
-## Conway-Maxwell-Binomial distributions
+## Multiplicative binomial distributions
  If you would like to learn more about this probability distribution, see this paper: <https://arxiv.org/pdf/1404.1856v1.pdf>
 
 ## Initialising a Multiplicative binomial distribution
@@ -29,7 +29,7 @@
  ```
 
 ## Estimating the parameters of the distribution
- To estmiate the parameters of the Multiplicative binomial distribution given a sample, run the following lines
+ To estimate the parameters of the Multiplicative binomial distribution given a sample, run the following lines
  ```python
  sample = multi_bin_distn.rvs(size=15)
  initial_params = [0.5, 1]
