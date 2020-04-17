@@ -1,4 +1,4 @@
-# Conway Maxwell Binomial Distribution
+# Multiplicative Binomial Distribution
  This package defines a class of Multiplicative-Binomial distribution objects for Python 3. It also defines some useful functions for working with the objects.
 
 #### Requirements
